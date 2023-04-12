@@ -1,0 +1,28 @@
+{
+  "name": "Article Summary",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Get a one-line summary of any article",
+  "permissions": [
+    "activeTab",
+    "http://*/",
+    "https://*/",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Get Summary",
+    "default_popup": "popup.html"
+  }
+}
